@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+
+:root {
+    --blue-tone: #cbd6d9;
+    --darkblue-tone: #2c2c2c;
+    --dark-grey: #636a67;
+    --medium-grey: #cacbc4;
+    --light-grey1: #dcdfda;
+    --light-grey2: #eff5f0;
+
+}
+
+* {
+    font-family: 'Comfortaa', cursive;
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    background-image: url('assets/patternpad.svg');
+}
+
+#file {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+#wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form {
+    display:grid;
+    gap:0.5rem;
+    grid-template-columns:auto 1fr;
+    max-width:500px;
+    margin: 0 auto;
+    padding: 6.5rem;
+    background: rgba( 255, 255, 255, 0.4 );
+    box-shadow: 0 8px 32px 0 rgba(193, 194, 209, 0.37);
+    backdrop-filter: blur( 12px );
+    -webkit-backdrop-filter: blur( 12px );
+    border-radius: 10px;
+    line-height: 40px;
+}
+
+.fileLabel {
+    grid-column: 1 / -1;
+    cursor: pointer;
+    fill: var(--dark-grey);
+    transition: 0.2s ease-out;
+    text-align: center;
+    font-size: 28px;
+    color: var(--dark-grey);
+}
+
+#password {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--dark-grey);
+    height: 35px;
+}
+
+.submitButton {
+    background-color: transparent;
+    color: var(--dark-grey);
+    border: 2px solid var(--dark-grey);
+    padding: 15px;
+    margin: 10px;
+    font-size: 18px;
+    transition: 0.2s ease-in-out !important;
+}
+
+.submitButton:hover {
+    background-color: var(--dark-grey);
+    color: #fff;; 
+}
+
+.fileLabel:hover {
+    fill: var(--darkblue-tone);
+    color: var(--darkblue-tone);
+    transform: scale(1.25);
+}
+
+.hide {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.2s linear;
+}
+
+.fileLabel:hover ~ .hide {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.2s, opacity 0.2s linear;
+}
+
+#notification {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    text-align:center;
+    margin: 1rem auto;
+    border: black 1px solid;
+    padding: 1rem;
+    z-index: 100 !important;
+    background-color: #fff;
+    box-shadow:
+    2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+    12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+    100px 100px 80px rgba(0, 0, 0, 0.07)
+  ;
+  
+}
+
+.show {
+    display: grid !important;
+    animation: warning 400ms ease-in-out forwards;
+}
+
+@keyframes warning {
+    0%{
+        opacity: 0;
+        top: 0;
+    }
+    5%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        top: 2rem;
+    }
+}

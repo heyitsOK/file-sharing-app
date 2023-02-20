@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        style 
+            include ./styles.css
+        title Share a file
+    body
+        script 
+            include ./js/upload.js
+        div(id="notification")
+        div(id="wrapper")
+            form(action="/upload" method="post" class="form" id="mainForm" enctype="multipart/form-data")
+                label(for="file" class="fileLabel")
+                    include ./assets/upload.pug
+                    br
+                    br
+                    br
+                    p(id="uploadLabel") [No file selected]
+                    input(type="file" id="file" name="file" onchange="updateSelection()"  required)
+                label(for="password" class="hide" style="color:var(--dark-grey)") Password: 
+                input(type="password" id="password" name="password" class="hide")
+                button(type="button" onclick="getLink()" style="grid-column:span 2;" class="hide submitButton") Share
